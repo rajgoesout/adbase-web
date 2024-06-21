@@ -1,3 +1,8 @@
+'use client';
+
+import { Web3Provider } from "./Web3Provider";
+import { ConnectKitButton } from "connectkit";
+
 import { Button } from '@/components/ui/button';
 import { auth, signIn, signOut } from '@/lib/auth';
 import Image from 'next/image';
@@ -10,8 +15,8 @@ export async function User() {
     return (
       <form
         action={async () => {
-          'use server';
-          await signIn('github');
+          // 'use server';
+          // await signIn('github');
         }}
       >
         <Button variant="outline">Sign In</Button>
@@ -23,8 +28,8 @@ export async function User() {
     <div className="flex items-center gap-4">
       <form
         action={async () => {
-          'use server';
-          await signOut();
+          // 'use server';
+          // await signOut();
         }}
       >
         <Button variant="outline">Sign Out</Button>
