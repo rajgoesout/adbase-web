@@ -8,6 +8,7 @@ import { getUsers } from '@/lib/db';
 import { UsersTable } from './users-table';
 import { Search } from './search';
 import Example from "@/components/ui/form";
+import FrameStudio from "@/components/ui/studio";
 
 export default async function IndexPage({
   searchParams
@@ -27,9 +28,8 @@ export default async function IndexPage({
       {/* <Web3Provider>
         <ConnectKitButton />
       </Web3Provider> */}
-      voila <br />
-      create your first Ad
-      <Example />
+      {/* <Example /> */}
+      <FrameStudio />
       {/* <div className="flex items-center mb-8">
         <h1 className="font-semibold text-lg md:text-2xl">Users</h1>
       </div>

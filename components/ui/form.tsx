@@ -14,11 +14,11 @@
 */
 'use client';
 
-import { Web3Provider } from "../../app/Web3Provider";
-import { ConnectKitButton } from "connectkit";
-import { useAccount } from "wagmi";
+// import { Web3Provider } from "../../app/Web3Provider";
+// import { ConnectKitButton } from "connectkit";
+// import { useAccount } from "wagmi";
 
-import { getUsers } from '@/lib/db';
+// import { getUsers } from '@/lib/db';
 // import { UsersTable } from './users-table';
 // import { Search } from './search';
 // import Example from "@/components/ui/form";

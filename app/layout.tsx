@@ -1,23 +1,17 @@
 'use client';
 
-import {
-  ClerkProvider,
-  SignInButton,
-  SignedIn,
-  SignedOut,
-  UserButton
-} from '@clerk/nextjs'
+
+import { DynamicContextProvider, DynamicWidget } from '@dynamic-labs/sdk-react-core';
+import { EthereumWalletConnectors } from "@dynamic-labs/ethereum";
 
 import './globals.css';
 
-import { Web3Provider } from "./Web3Provider";
-import { ConnectKitButton } from "connectkit";
 
 import Link from 'next/link';
 import { Analytics } from '@vercel/analytics/react';
 import { Logo, SettingsIcon, UsersIcon, VercelLogo } from '@/components/icons';
-import { User } from './user';
 import { NavItem } from './nav-item';
+import Home from '@geist-ui/icons/home';
 
 // export const metadata = {
 //   title: 'Next.js App Router + NextAuth + Tailwind CSS',
@@ -31,7 +25,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <ClerkProvider>
+    // <ClerkProvider>
+    // <DynamicContextProvider
+    // settings={{
+    //   environmentId: '5cdefb9e-9f44-426a-a986-459f1a5b7ea8',
+    //   walletConnectors: [ EthereumWalletConnectors ],
+    // }}>
+    // <DynamicWidget />
       <html lang="en" className="h-full bg-gray-50">
         <body>
           {/* <SignedOut>
@@ -40,7 +40,13 @@ export default function RootLayout({
           <SignedIn>
             <UserButton />
           </SignedIn> */}
-          <Web3Provider>
+          {/* <Web3Provider> */}
+          <DynamicContextProvider
+          settings={{
+            environmentId: '5cdefb9e-9f44-426a-a986-459f1a5b7ea8',
+            walletConnectors: [ EthereumWalletConnectors ],
+          }}>
+          {/* <DynamicWidget /> */}
             <div className="grid min-h-screen w-full lg:grid-cols-[280px_1fr]">
               <div className="hidden border-r bg-gray-100/40 lg:block dark:bg-gray-800/40">
                 <div className="flex h-full max-h-screen flex-col gap-2">
@@ -50,27 +56,27 @@ export default function RootLayout({
                       href="/"
                     >
                       <Logo />
-                      <span className="">AdBase</span>
+                      <span className="">Adbase</span>
                     </Link>
                   </div>
                   <div className="flex-1 overflow-auto py-2">
                     <nav className="grid items-start px-4 text-sm font-medium">
                       <NavItem href="/">
-                        <UsersIcon className="h-4 w-4" />
+                        <Home className="h-4 w-4" />
                         Home
                       </NavItem>
-                      <NavItem href="/users">
+                      {/* <NavItem href="/users">
                         <UsersIcon className="h-4 w-4" />
                         Users
-                      </NavItem>
+                      </NavItem> */}
                       <NavItem href="/settings">
                         <SettingsIcon className="h-4 w-4" />
                         Settings
                       </NavItem>
-                      <NavItem href="https://vercel.com/templates/next.js/admin-dashboard-tailwind-postgres-react-nextjs">
+                      {/* <NavItem href="https://vercel.com/templates/next.js/admin-dashboard-tailwind-postgres-react-nextjs">
                         <VercelLogo className="h-4 w-4" />
                         Deploy
-                      </NavItem>
+                      </NavItem> */}
                     </nav>
                   </div>
                 </div>
@@ -82,18 +88,21 @@ export default function RootLayout({
                     href="/"
                   >
                     <Logo />
-                    <span className="">AdBase</span>
+                    <span className="">Adbase</span>
                   </Link>
                   {/* <User /> */}
-                  <ConnectKitButton />
+                  {/* <ConnectKitButton /> */}
+                  <DynamicWidget />
                 </header>
                 {children}
               </div>
             </div>
             <Analytics />
-          </Web3Provider>
+          </DynamicContextProvider>
+          {/* </Web3Provider> */}
         </body>
       </html>
-    </ClerkProvider>
+    // </DynamicContextProvider>
+    // </ClerkProvider>
   );
 }
